@@ -1,4 +1,4 @@
 # my-portfolio
 
 #install --  npm install
-# to run the project ---  npm run dev
+#to run the project ---  npm run dev
