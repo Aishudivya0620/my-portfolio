@@ -1,6 +1,6 @@
 // import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, Github } from "lucide-react";
+import { ArrowRight, Download,Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "../components/AnimatedSection";
 import { projects } from "../constants/projects";
@@ -195,7 +195,7 @@ const Home = () => {
                 </h3>
 
                 <div className="space-y-4">
-                  <div className="border-l-4 border-primary-500 pl-4 py-1">
+                  {/* <div className="border-l-4 border-primary-500 pl-4 py-1">
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       2020 - Present
                     </p>
@@ -206,16 +206,15 @@ const Home = () => {
                       Leading development of web applications for enterprise
                       clients
                     </p>
-                  </div>
+                  </div> */}
 
                   <div className="border-l-4 border-primary-500 pl-4 py-1">
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      2018 - 2020
+                      August 2023 – Present
                     </p>
                     <h4 className="font-medium">Junior Software Developer</h4>
                     <p className="text-sm">
-                      Built and maintained multiple client projects using modern
-                      web technologies
+                      Working on UI and developing features for web apps using modern frameworks and tools
                     </p>
                   </div>
 

@@ -1,8 +1,8 @@
 // import React from "react";
 import { motion } from "framer-motion";
-import { Download, Mail, Phone, MapPin, Calendar, Link } from "lucide-react";
-import AnimatedSection from "../components/AnimatedSection";
-import ContactForm from "../components/ContactForm";
+import { Download, Mail, Phone, MapPin, Calendar} from "lucide-react";
+// import AnimatedSection from "../components/AnimatedSection";
+// import ContactForm from "../components/ContactForm";
 import myimg from "../images/me.jpg";
 
 const Resume = () => {
@@ -81,13 +81,16 @@ const Resume = () => {
                     Professional Summary
                   </h2>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Passionate and results-driven Full Stack Developer with 5+
-                    years of experience building responsive web applications
-                    using modern JavaScript frameworks. Skilled in developing
-                    robust backend systems and RESTful APIs. Strong
-                    problem-solving abilities with a focus on writing clean,
-                    maintainable code. Committed to delivering high-quality
-                    products that provide exceptional user experiences.
+                    Junior Software Developer with 2 year of experience,
+                    specializing in frontend development and UI/UX design.
+                    Skilled in building responsive, visually engaging web
+                    applications using HTML, CSS, JavaScript, React.js, and
+                    Tailwind CSS. Passionate about clean code, pixel-perfect
+                    design, and seamless user experiences. Proficient in tools
+                    like Figma for prototyping and Git for version control. A
+                    creative problem-solver who bridges the gap between design
+                    and development to bring intuitive digital experiences to
+                    life.
                   </p>
                 </div>
 
