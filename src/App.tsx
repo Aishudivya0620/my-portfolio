@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Layout
@@ -34,18 +34,16 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>
-      <AnimatePresence mode="wait">
-        <MainLayout toggleTheme={toggleTheme} theme={theme}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/resume" element={<Resume />} />
-          </Routes>
-        </MainLayout>
-      </AnimatePresence>
-    </Router>
+    <AnimatePresence mode="wait">
+      <MainLayout toggleTheme={toggleTheme} theme={theme}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </MainLayout>
+    </AnimatePresence>
   );
 }
 
