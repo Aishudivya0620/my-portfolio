@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, ElementType } from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import { projects } from "../constants/projects";
@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 
 // Technology to icon mapping
-const techIcons: Record<string, { icon: React.ElementType; color: string }> = {
+const techIcons: Record<string, { icon: ElementType; color: string }> = {
   React: { icon: ReactIcon, color: "text-cyan-500" },
   "Node.js": { icon: NodeJs, color: "text-green-600" },
   // 'Express': { icon: Server, color: 'text-gray-600' },
@@ -54,11 +54,11 @@ const Projects = () => {
 
   const filteredProjects = activeFilter
     ? projects.filter((project) =>
-        project.technologies.some(
-          (tech) =>
-            tech.trim().toLowerCase() === activeFilter?.trim().toLowerCase()
-        )
+      project.technologies.some(
+        (tech) =>
+          tech.trim().toLowerCase() === activeFilter?.trim().toLowerCase()
       )
+    )
     : projects;
 
   const officeProjects = filteredProjects.filter(
@@ -69,157 +69,117 @@ const Projects = () => {
   );
 
   return (
-    <div className="pt-20">
-      <section className="section bg-gray-50 dark:bg-gray-800">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto text-center mb-16"
-          >
-            <h1 className="text-4xl font-bold mb-6">
-              My{" "}
-              <span className="text-primary-600 dark:text-primary-400">
-                Projects
-              </span>
-            </h1>
-            <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto">
-              Browse through my latest projects. Each one represents a unique
-              challenge and solution, showcasing different aspects of my
-              technical skills and creativity.
-            </p>
-          </motion.div>
+    <div className="pt-32 min-h-screen pb-24">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto text-center mb-16"
+        >
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full glass border-white/10 text-primary-400 text-sm font-medium tracking-wide uppercase">
+            Portfolio
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black mb-8 italic">
+            SELECTED <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">WORKS</span>
+          </h1>
+          <p className="text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed">
+            A collection of projects where I've pushed the boundaries of what's possible on the web.
+          </p>
+        </motion.div>
 
-          <AnimatedSection delay={0.1}>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              <button
-                onClick={() => setActiveFilter(null)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  activeFilter === null
-                    ? "bg-primary-500 text-white"
-                    : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
+        <AnimatedSection delay={0.1}>
+          <div className="flex flex-wrap justify-center gap-3 mb-20 overflow-x-auto pb-4 no-scrollbar">
+            <button
+              onClick={() => setActiveFilter(null)}
+              className={`px-6 py-2.5 text-sm font-bold rounded-2xl transition-all border ${activeFilter === null
+                  ? "bg-primary-500 border-primary-500 text-white shadow-[0_0_20px_rgba(14,165,233,0.4)]"
+                  : "glass border-white/5 text-gray-400 hover:text-white hover:border-white/20"
                 }`}
-              >
-                All
-              </button>
+            >
+              All Projects
+            </button>
 
-              {allTechnologies.map((tech) => {
-                const IconInfo = techIcons[tech];
-                const Icon = IconInfo?.icon;
+            {allTechnologies.map((tech) => {
+              const IconInfo = techIcons[tech];
+              const Icon = IconInfo?.icon;
 
-                return (
-                  <button
-                    key={tech}
-                    onClick={() => setActiveFilter(tech)}
-                    className={`px-4 py-2 text-sm font-medium rounded-full transition-colors flex items-center gap-2 ${
-                      activeFilter === tech
-                        ? "bg-primary-500 text-white"
-                        : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
+              return (
+                <button
+                  key={tech}
+                  onClick={() => setActiveFilter(tech)}
+                  className={`px-6 py-2.5 text-sm font-bold rounded-2xl transition-all border flex items-center gap-2 whitespace-nowrap ${activeFilter === tech
+                      ? "bg-primary-500 border-primary-500 text-white shadow-[0_0_20px_rgba(14,165,233,0.4)]"
+                      : "glass border-white/5 text-gray-400 hover:text-white hover:border-white/20"
                     }`}
-                  >
-                    {Icon && <Icon className={`w-4 h-4 ${IconInfo.color}`} />}
-                    <span>{tech}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </AnimatedSection>
+                >
+                  {Icon && <Icon className={`w-4 h-4 ${activeFilter === tech ? 'text-white' : IconInfo.color}`} />}
+                  <span>{tech}</span>
+                </button>
+              );
+            })}
+          </div>
+        </AnimatedSection>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            layout
-          >
-            {filteredProjects.length > 0 ? (
-              <>
-                {officeProjects.length > 0 && (
-                  <>
-                    <h2 className="col-span-full text-2xl font-bold text-left text-primary-600 dark:text-primary-400">
-                      Office Projects
-                    </h2>
-                    {officeProjects.map((project, index) => (
-                      <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index}
-                      />
-                    ))}
-                  </>
-                )}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          layout
+        >
+          {filteredProjects.length > 0 ? (
+            <>
 
-                {personalProjects.length > 0 && (
-                  <>
-                    <h2 className="col-span-full text-2xl font-bold text-left text-primary-600 dark:text-primary-400 mt-8">
+
+              {personalProjects.length > 0 && (
+                <>
+                  <div className="col-span-full mb-4 mt-12 flex items-center gap-4">
+                    <h2 className="text-2xl font-black text-white/50 uppercase tracking-widest">
                       Personal Projects
                     </h2>
-                    {personalProjects.map((project, index) => (
-                      <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index + officeProjects.length}
-                      />
-                    ))}
-                  </>
-                )}
-              </>
-            ) : (
-              <p className="col-span-full text-center text-gray-500 dark:text-gray-400 py-12">
-                No projects found with the selected technology.
+                    <div className="h-px flex-grow bg-white/5" />
+                  </div>
+                  {personalProjects.map((project, index) => (
+                    <ProjectCard
+                      key={project.id}
+                      project={project}
+                      index={index + officeProjects.length}
+                    />
+                  ))}
+                </>
+              )}
+
+              {officeProjects.length > 0 && (
+                <>
+                  <div className="col-span-full mb-4 flex items-center gap-4">
+                    <h2 className="text-2xl font-black text-white/50 uppercase tracking-widest">
+                      Office Projects
+                    </h2>
+                    <div className="h-px flex-grow bg-white/5" />
+                  </div>
+                  {officeProjects.map((project, index) => (
+                    <ProjectCard
+                      key={project.id}
+                      project={project}
+                      index={index}
+                    />
+                  ))}
+                </>
+              )}
+            </>
+          ) : (
+            <div className="col-span-full py-24 text-center glass rounded-[3rem] border-white/5">
+              <p className="text-gray-500 text-xl font-medium">
+                No projects found for the selected filter.
               </p>
-            )}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* <section className="section bg-white dark:bg-gray-900">
-        <div className="container-custom">
-          <AnimatedSection>
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Project <span className="text-primary-600 dark:text-primary-400">Approach</span>
-            </h2>
-          </AnimatedSection>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <AnimatedSection delay={0.1}>
-                <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full mb-4">
-                    <span className="text-xl font-bold">1</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Planning</h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Every project starts with thorough requirements gathering and detailed planning to ensure the final product meets all objectives.
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2}>
-                <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full mb-4">
-                    <span className="text-xl font-bold">2</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Development</h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Using modern technologies and best practices to build robust, scalable, and maintainable applications with clean code.
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.3}>
-                <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full mb-4">
-                    <span className="text-xl font-bold">3</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Testing & Deployment</h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Rigorous testing and smooth deployment processes ensure high-quality, reliable applications that perform well in production.
-                  </p>
-                </div>
-              </AnimatedSection>
+              <button
+                onClick={() => setActiveFilter(null)}
+                className="mt-6 text-primary-400 font-bold hover:underline"
+              >
+                Clear all filters
+              </button>
             </div>
-          </div>
-        </div>
-      </section> */}
+          )}
+        </motion.div>
+      </div>
     </div>
   );
 };

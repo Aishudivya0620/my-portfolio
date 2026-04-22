@@ -61,12 +61,7 @@ export const skills: SkillProps[] = [
     color: 'bg-green-500',
     level: 3,
   },
-  {
-    name: 'SQL',
-    icon: Database,
-    color: 'bg-blue-600',
-    level: 3,
-  },
+
   {
     name: 'HTML/CSS',
     icon: Layout,
@@ -91,12 +86,12 @@ export const skills: SkillProps[] = [
     color: 'bg-red-500',
     level: 4,
   },
-  {
-    name: 'Testing',
-    icon: TestTube,
-    color: 'bg-green-400',
-    level: 3,
-  },
+  // {
+  //   name: 'Testing',
+  //   icon: TestTube,
+  //   color: 'bg-green-400',
+  //   level: 3,
+  // },
   {
     name: 'UI/UX',
     icon: LayoutDashboard,

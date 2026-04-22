@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
 
 // Layout
 import MainLayout from './layout/MainLayout';
@@ -10,6 +9,7 @@ import Home from './pages/Home';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
+import Preloader from './components/Preloader';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -34,7 +34,8 @@ function App() {
   }, [theme]);
 
   return (
-    <AnimatePresence mode="wait">
+    <>
+      <Preloader />
       <MainLayout toggleTheme={toggleTheme} theme={theme}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,7 +44,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
         </Routes>
       </MainLayout>
-    </AnimatePresence>
+    </>
   );
 }
 

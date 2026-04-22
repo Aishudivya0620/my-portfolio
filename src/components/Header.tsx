@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
 interface HeaderProps {
@@ -25,33 +25,32 @@ const Header = ({ scrolled, toggleTheme, theme }: HeaderProps) => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-md'
-          : 'bg-transparent'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      className={`fixed top-6 left-0 right-0 z-50 transition-all duration-500 flex justify-center px-6`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
     >
-      <div className="container-custom py-4 flex items-center justify-between">
+      <div className={`container-custom max-w-4xl py-3 px-6 glass rounded-2xl flex items-center justify-between border-white/10 transition-all duration-500 ${scrolled ? 'py-4 scale-95 shadow-2xl' : ''}`}>
         <NavLink 
           to="/" 
-          className="text-2xl font-bold text-primary-600 dark:text-primary-400"
+          className="text-xl font-bold tracking-tighter flex items-center gap-2 group"
           onClick={() => setMobileMenuOpen(false)}
         >
-          <span className="text-accent-600 dark:text-accent-400">Aishwarya</span>T
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-xs group-hover:rotate-12 transition-transform">
+            A
+          </div>
+          <span className="hidden sm:block">AISHWARYA</span>
         </NavLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
               className={({ isActive }) =>
-                `font-medium transition-colors hover:text-primary-500 ${
-                  isActive ? 'text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'
+                `px-4 py-2 rounded-xl text-sm font-medium transition-all hover:bg-white/10 ${
+                  isActive ? 'bg-white/10 text-primary-400' : 'text-gray-400 hover:text-white'
                 }`
               }
             >
@@ -59,75 +58,69 @@ const Header = ({ scrolled, toggleTheme, theme }: HeaderProps) => {
             </NavLink>
           ))}
 
+          <div className="w-px h-4 bg-white/10 mx-2" />
+
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-xl hover:bg-white/10 transition-all text-gray-400 hover:text-white"
             aria-label="Toggle theme"
           >
             {theme === 'light' ? (
-              <Moon className="w-5 h-5" />
+              <Moon className="w-4 h-4" />
             ) : (
-              <Sun className="w-5 h-5" />
+              <Sun className="w-4 h-4" />
             )}
           </button>
         </nav>
 
         {/* Mobile menu button */}
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center md:hidden gap-2">
           <button
             onClick={toggleTheme}
-            className="p-2 mr-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-xl glass border-white/10 hover:bg-white/10 transition-all"
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? (
-              <Moon className="w-5 h-5" />
-            ) : (
-              <Sun className="w-5 h-5" />
-            )}
+            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
           </button>
           
           <button
             type="button"
-            className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-xl glass border-white/10 hover:bg-white/10 transition-all"
             onClick={toggleMobileMenu}
-            aria-expanded={mobileMenuOpen}
           >
-            <span className="sr-only">Open main menu</span>
-            {mobileMenuOpen ? (
-              <X className="block h-6 w-6" />
-            ) : (
-              <Menu className="block h-6 w-6" />
-            )}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <motion.div
-            className="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg md:hidden"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-          >
-            <nav className="flex flex-col py-3">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.name}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `px-5 py-3 font-medium transition-colors ${
-                      isActive ? 'text-primary-600 bg-gray-50 dark:text-primary-400 dark:bg-gray-800' : 'text-gray-700 dark:text-gray-300'
-                    }`
-                  }
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </NavLink>
-              ))}
-            </nav>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className="absolute top-full left-0 right-0 mt-4 p-4 glass rounded-3xl md:hidden border-white/10"
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <nav className="flex flex-col gap-2">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.name}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `px-4 py-4 rounded-2xl text-base font-medium transition-all ${
+                        isActive ? 'bg-primary-500/10 text-primary-400' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      }`
+                    }
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </NavLink>
+                ))}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

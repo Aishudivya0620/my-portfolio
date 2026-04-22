@@ -2,6 +2,9 @@ import { ProjectProps } from "../components/ProjectCard";
 import bot from "../images/bot-manager.jpg";
 import registration from "../images/registration.jpg";
 import patient from "../images/patient.jpg";
+import social from "../images/social-dashboard.png";
+import fitness from "../images/fitness-app.png";
+import realestate from "../images/real-estate.png";
 
 export const projects: ProjectProps[] = [
   {
@@ -36,11 +39,9 @@ export const projects: ProjectProps[] = [
     title: "Social Media Dashboard",
     description:
       "A comprehensive analytics dashboard for social media managers showing engagement metrics, audience growth, and content performance across platforms.",
-    imageUrl:
-      "https://images.pexels.com/photos/3194519/pexels-photo-3194519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: social,
     technologies: ["React", "Tailwind CSS"],
     category: "personal",
-
     liveUrl: "https://example.com/social-dashboard",
     githubUrl: "https://github.com/username/social-dashboard",
   },
@@ -49,11 +50,9 @@ export const projects: ProjectProps[] = [
     title: "Fitness Tracking App",
     description:
       "A mobile-first application for tracking workouts, nutrition, and progress with data visualization and personalized workout recommendations.",
-    imageUrl:
-      "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: fitness,
     technologies: ["React", " Tailwind CSS"],
     category: "personal",
-
     liveUrl: "https://example.com/fitness",
     githubUrl: "https://github.com/username/fitness",
   },
@@ -62,11 +61,9 @@ export const projects: ProjectProps[] = [
     title: "Real Estate Listing Platform",
     description:
       "A comprehensive platform for property listings featuring search filters, interactive maps, virtual tours, and mortgage calculators.",
-    imageUrl:
-      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: realestate,
     technologies: ["React", "Tailwind CSS", "MongoDB"],
     category: "personal",
-
     liveUrl: "https://example.com/realestate",
     githubUrl: "https://github.com/username/realestate",
   },

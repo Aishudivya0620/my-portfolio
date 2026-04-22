@@ -1,227 +1,172 @@
 // import React from "react";
 import { motion } from "framer-motion";
-import { Download, Mail, Phone, MapPin, Calendar} from "lucide-react";
+import { Download, Mail, Phone, MapPin, Calendar } from "lucide-react";
 // import AnimatedSection from "../components/AnimatedSection";
 // import ContactForm from "../components/ContactForm";
 import myimg from "../images/me.jpg";
 
 const Resume = () => {
   return (
-    <div className="pt-20">
-      {/* Resume Overview Section */}
-      <section className="section bg-gray-50 dark:bg-gray-800">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="w-full md:w-1/3 text-center">
-                <div className="relative mb-6 mx-auto w-40 h-40 rounded-full overflow-hidden border-4 border-primary-500">
+    <div className="pt-32 min-h-screen pb-24">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Sidebar */}
+            <div className="w-full lg:w-1/3 space-y-8 sticky top-32">
+              <div className="glass p-8 rounded-[2.5rem] border-white/10 text-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-accent-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                <div className="relative mb-6 mx-auto w-32 h-32 rounded-[2rem] overflow-hidden border-2 border-primary-500/30 p-1">
                   <img
                     src={myimg}
-                    alt="Profile"
-                    className="w-full h-full object-cover"
+                    alt="Aishwarya"
+                    className="w-full h-full object-cover rounded-[1.8rem]"
                   />
                 </div>
 
-                <h1 className="text-2xl font-bold">Aishwarya</h1>
-                <p className="text-primary-600 dark:text-primary-400 font-medium mb-4">
-                  Junior Software Developer
+                <h1 className="text-3xl font-black mb-2 uppercase tracking-tighter">Aishwarya</h1>
+                <p className="text-primary-400 font-bold text-sm mb-6 uppercase tracking-widest">
+                  Frontend Developer
                 </p>
 
-                <div className="flex flex-col space-y-3 text-sm text-gray-700 dark:text-gray-300">
-                  <div className="flex items-center justify-center">
-                    <Mail className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
-                    <a
-                      href="mailto:email@example.com"
-                      className="hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      aishwaryat1410@gmail.com
-                    </a>
+                <div className="space-y-4 text-sm text-gray-400">
+                  <div className="flex items-center justify-center gap-3 p-3 glass border-white/5 rounded-2xl hover:bg-white/5 transition-colors">
+                    <Mail className="w-4 h-4 text-primary-400" />
+                    <span>aishwarya1135@gmail.com</span>
                   </div>
-                  <div className="flex items-center justify-center">
-                    <Phone className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
+                  <div className="flex items-center justify-center gap-3 p-3 glass border-white/5 rounded-2xl hover:bg-white/5 transition-colors">
+                    <Phone className="w-4 h-4 text-accent-400" />
                     <span>8667275188</span>
                   </div>
-                  <div className="flex items-center justify-center">
-                    <MapPin className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
-                    <span>Thiruvallur, Chennai</span>
+                  <div className="flex items-center justify-center gap-3 p-3 glass border-white/5 rounded-2xl hover:bg-white/5 transition-colors">
+                    <MapPin className="w-4 h-4 text-primary-400" />
+                    <span>Chennai, India</span>
                   </div>
-                  {/* <div className="flex items-center justify-center">
-                    <Link className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
-                    <a
-                      href="https://portfolio.com"
-                      className="hover:text-primary-600 dark:hover:text-primary-400"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      portfolio.com
-                    </a>
-                  </div> */}
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-8">
                   <a
                     href="/resume.pdf"
-                    download="Aishwarya_Resume.pdf" // Optional: set a custom filename
-                    className="btn btn-primary inline-flex items-center"
+                    download="Aishwarya_Resume.pdf"
+                    className="btn-premium btn-premium-primary w-full text-sm py-4"
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Resume
+                    <Download className="w-4 h-4" />
+                    <span>Download CV</span>
                   </a>
                 </div>
               </div>
 
-              <div className="w-full md:w-2/3">
-                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 mb-6">
-                  <h2 className="text-xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
-                    Professional Summary
-                  </h2>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Junior Software Developer with 2 year of experience,
-                    specializing in frontend development and UI/UX design.
-                    Skilled in building responsive, visually engaging web
-                    applications using HTML, CSS, JavaScript, React.js, and
-                    Tailwind CSS. Passionate about clean code, pixel-perfect
-                    design, and seamless user experiences. Proficient in tools
-                    like Figma for prototyping and Git for version control. A
-                    creative problem-solver who bridges the gap between design
-                    and development to bring intuitive digital experiences to
-                    life.
-                  </p>
-                </div>
-
-                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 mb-6">
-                  <h2 className="text-xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
-                    Work Experience
-                  </h2>
-
-                  <div className="space-y-6">
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-lg font-semibold">
-                          Junior Software Developer
-                        </h3>
-                        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                          <Calendar className="w-4 h-4 mr-1" />
-                          <span>2020 - Present</span>
-                        </div>
-                      </div>
-                      <h4 className="text-primary-600 dark:text-primary-400 mb-2">
-                        MannIT Innovations - Madippakam, Chennai.
-                      </h4>
-                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                        <li>
-                          I have developed and maintained responsive,
-                          user-friendly web interfaces using React.js, HTML,
-                          CSS, and JavaScript, achieving 98/100 in Performance,
-                          91/100 in Accessibility, 100/100 in Best Practices,
-                          and 90/100 in SEO.
-                        </li>
-                        <li>
-                          Worked on features for projects like Alumni
-                          Registration, Admin Panel, and Mock Test Applications.
-                        </li>
-                        <li>
-                          Ensured mobile responsiveness for key components
-                          ,optimizing the user experience across various devices
-                        </li>
-                        <li>
-                          Actively participated in team meetings, discussions
-                          with UI/UX designers.
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-lg font-semibold">
-                          Python Development Intern
-                        </h3>
-
-                        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                          <Calendar className="w-4 h-4 mr-1" />
-                          <span>January 2022 - April 2022</span>
-                        </div>
-                      </div>
-                      <h4 className="text-primary-600 dark:text-primary-400 mb-2">
-                        Shiash Info Solutions Pvt. Ltd. - Chennai, India
-                      </h4>
-                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                        <li>
-                          Gained hands-on experience in Python-based application
-                          development.
-                        </li>
-                        <li>
-                          Assisted in writing clean, efficient code and
-                          debugging issues in real-world projects.{" "}
-                        </li>
-                        <li>
-                          Learned agile methodologies and worked in a
-                          collaborative team environment.
-                        </li>
-                        <li>
-                          Collaborated with designers to transform mockups into
-                          functional UIs
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
-                  <h2 className="text-xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
-                    Education
-                  </h2>
-
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-semibold">
-                        B.Sc. in Computer Science
-                      </h3>
-                      <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        <span>April 2019 - August 2022</span>
-                      </div>
-                    </div>
-                    <h4 className="text-primary-600 dark:text-primary-400 mb-2">
-                      Sri Ram College of Arts and Science
-                    </h4>
-                    {/* <p className="text-gray-700 dark:text-gray-300 text-sm">
-                      Graduated with honors. Relevant coursework included Data Structures, Algorithms, 
-                      Web Development, Database Systems, and Software Engineering.
-                    </p> */}
-                  </div>
+              <div className="glass p-8 rounded-[2.5rem] border-white/10">
+                <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                  <div className="w-1.5 h-6 bg-primary-500 rounded-full" />
+                  Core Expertise
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {['React.js', 'Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'UI/UX'].map(skill => (
+                    <span key={skill} className="px-3 py-1.5 glass border-white/5 rounded-xl text-[10px] font-bold uppercase text-gray-300">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Contact Section */}
-      {/* <section id="contact" className="section bg-white dark:bg-gray-900">
-        <div className="container-custom">
-          <AnimatedSection>
-            <h2 className="text-3xl font-bold text-center mb-4">
-              Let's{" "}
-              <span className="text-primary-600 dark:text-primary-400">
-                Connect
-              </span>
-            </h2>
-            <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-              Interested in working together? Feel free to reach out through the
-              form below or directly via email. I'm always open to discussing
-              new projects and opportunities.
-            </p>
-          </AnimatedSection>
+            {/* Main Content */}
+            <div className="w-full lg:w-2/3 space-y-10">
+              <section className="glass p-8 md:p-10 rounded-[2.5rem] border-white/10 group">
+                <h2 className="text-2xl font-black mb-6 flex items-center gap-4">
+                  <span className="text-primary-400">01</span>
+                  SUMMARY
+                </h2>
+                <p className="text-gray-400 leading-relaxed text-lg group-hover:text-gray-300 transition-colors">
+                  Frontend Developer with 3 years of experience specializing in React.js, Next.js, and modern JavaScript.
+                  Skilled in building scalable, responsive web applications, integrating APIs, and creating clean, efficient
+                  UI components. Focused on performance and user experience.
+                </p>
+              </section>
 
-          <ContactForm />
-        </div>
-      </section> */}
+              <section className="glass p-8 md:p-10 rounded-[2.5rem] border-white/10">
+                <h2 className="text-2xl font-black mb-10 flex items-center gap-4">
+                  <span className="text-accent-400">02</span>
+                  EXPERIENCE
+                </h2>
+
+                <div className="space-y-12 relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-white/10 pl-8">
+                  <div className="relative group">
+                    <div className="absolute -left-10 top-1.5 w-4 h-4 rounded-full glass border-primary-500/50 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+                    </div>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Frontend Developer</h3>
+                      <span className="text-xs font-bold text-primary-400 uppercase tracking-widest bg-primary-500/10 px-3 py-1 rounded-full">2025 - PRESENT</span>
+                    </div>
+                    <p className="text-sm font-bold text-gray-500 mb-4 italic uppercase">Aadhyas, Chennai</p>
+                    <ul className="space-y-3">
+                      {[
+                        'Developed and maintained responsive web interfaces using React.js and modern CSS frameworks.',
+                        'Achieved 98/100 Performance and 100/100 Best Practices in Lighthouse.',
+                        'Worked on complex features for Alumni Registration and Admin Panels.',
+                        'Optimized mobile responsiveness for high-traffic components.'
+                      ].map((item, i) => (
+                        <li key={i} className="flex gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="relative group">
+                    <div className="absolute -left-10 top-1.5 w-4 h-4 rounded-full glass border-accent-500/50 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent-500" />
+                    </div>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white">Python Development Intern</h3>
+                      <span className="text-xs font-bold text-gray-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">JAN 2022 - APR 2022</span>
+                    </div>
+                    <p className="text-sm font-bold text-gray-500 mb-4 italic uppercase">Shiash Info Solutions, Chennai</p>
+                    <ul className="space-y-3">
+                      {[
+                        'Gained hands-on experience in Python-based application development.',
+                        'Assisted in writing clean, efficient code and debugging issues.',
+                        'Worked in a collaborative Agile team environment.',
+                        'Transformed design mockups into functional user interfaces.'
+                      ].map((item, i) => (
+                        <li key={i} className="flex gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section className="glass p-8 md:p-10 rounded-[2.5rem] border-white/10">
+                <h2 className="text-2xl font-black mb-8 flex items-center gap-4">
+                  <span className="text-primary-400">03</span>
+                  EDUCATION
+                </h2>
+                <div className="flex items-center gap-6 p-6 glass border-white/5 rounded-3xl group hover:border-primary-500/30 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-primary-500/10 flex items-center justify-center shrink-0">
+                    <Calendar className="w-6 h-6 text-primary-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">B.Sc. in Computer Science</h3>
+                    <p className="text-primary-400 text-sm mb-1 font-medium">Sri Ram College of Arts and Science</p>
+                    <p className="text-xs text-gray-500 uppercase font-black">2019 - 2022</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
