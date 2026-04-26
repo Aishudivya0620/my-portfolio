@@ -286,8 +286,8 @@ const Home = () => {
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* We'll display just the first 3 projects here */}
-            {projects.slice(0, 3).map((project, index) => (
+            {/* We'll display just the personal projects here */}
+            {projects.filter(p => p.category === 'personal').slice(0, 3).map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>

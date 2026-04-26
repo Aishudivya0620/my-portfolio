@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Layout
@@ -12,31 +12,14 @@ import Resume from './pages/Resume';
 import Preloader from './components/Preloader';
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
-
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
+    document.documentElement.classList.add('dark');
+  }, []);
 
   return (
     <>
       <Preloader />
-      <MainLayout toggleTheme={toggleTheme} theme={theme}>
+      <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/skills" element={<Skills />} />

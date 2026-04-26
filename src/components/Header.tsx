@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   scrolled: boolean;
-  toggleTheme: () => void;
-  theme: string;
 }
 
-const Header = ({ scrolled, toggleTheme, theme }: HeaderProps) => {
+const Header = ({ scrolled }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -58,31 +56,10 @@ const Header = ({ scrolled, toggleTheme, theme }: HeaderProps) => {
             </NavLink>
           ))}
 
-          <div className="w-px h-4 bg-white/10 mx-2" />
-
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-xl hover:bg-white/10 transition-all text-gray-400 hover:text-white"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? (
-              <Moon className="w-4 h-4" />
-            ) : (
-              <Sun className="w-4 h-4" />
-            )}
-          </button>
         </nav>
 
         {/* Mobile menu button */}
         <div className="flex items-center md:hidden gap-2">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-xl glass border-white/10 hover:bg-white/10 transition-all"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-          </button>
-          
           <button
             type="button"
             className="p-2 rounded-xl glass border-white/10 hover:bg-white/10 transition-all"

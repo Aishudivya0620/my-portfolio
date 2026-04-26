@@ -10,12 +10,12 @@
   }
   
   body {
-    @apply bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 selection:bg-primary-500/30 selection:text-primary-800 dark:selection:text-primary-200 transition-colors duration-300 antialiased overflow-x-hidden;
+    @apply bg-[#030712] text-gray-100 selection:bg-primary-500/30 selection:text-primary-200 transition-colors duration-300 antialiased overflow-x-hidden;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-gray-900 dark:text-white uppercase;
+    @apply font-bold tracking-tight text-white uppercase;
   }
 }
 
@@ -25,15 +25,15 @@
   }
   
   .glass {
-    @apply bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
   }
 
   .glass-morphism {
-    @apply bg-white/10 dark:bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-xl;
+    @apply bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-xl;
   }
 
   .glass-dark {
-    @apply bg-gray-900/40 dark:bg-black/40 backdrop-blur-md border border-gray-900/10 dark:border-white/10;
+    @apply bg-black/40 backdrop-blur-md border border-white/10;
   }
   
   .neon-text {
@@ -80,11 +80,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-50 dark:bg-[#030712];
+  @apply bg-[#030712];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-white/10 rounded-full hover:bg-gray-400 dark:hover:bg-white/20 transition-colors;
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
 }
 
 /* Noise Texture */
