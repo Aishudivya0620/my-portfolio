@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Github, ExternalLink, Code, ArrowRight } from 'lucide-react';
+import { Github, ExternalLink, Code, } from 'lucide-react';
 
 export interface ProjectProps {
   id: string;
@@ -127,8 +127,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                     whileTap={{ scale: 0.95 }}
                     className="text-xs font-bold text-primary-400 flex items-center gap-2 group-link"
                   >
-                    View Details
-                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                  
                   </motion.button>
                 </>
               ) : (

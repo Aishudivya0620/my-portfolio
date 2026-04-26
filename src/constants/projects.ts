@@ -42,8 +42,8 @@ export const projects: ProjectProps[] = [
     imageUrl: social,
     technologies: ["React", "Tailwind CSS"],
     category: "personal",
-    liveUrl: "https://example.com/social-dashboard",
-    githubUrl: "https://github.com/username/social-dashboard",
+    liveUrl: "https://aishudivya0620.github.io/PulseAnalytics/",
+    githubUrl: "https://github.com/Aishudivya0620/PulseAnalytics",
   },
   {
     id: "5",
