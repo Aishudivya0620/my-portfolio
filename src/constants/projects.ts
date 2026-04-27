@@ -40,7 +40,7 @@ export const projects: ProjectProps[] = [
     description:
       "A comprehensive analytics dashboard for social media managers showing engagement metrics, audience growth, and content performance across platforms.",
     imageUrl: social,
-    technologies: ["React", "Tailwind CSS"],
+    technologies: ["React", "Tailwind CSS" , "Responsive"],
     category: "personal",
     liveUrl: "https://aishudivya0620.github.io/PulseAnalytics/",
     githubUrl: "https://github.com/Aishudivya0620/PulseAnalytics",
